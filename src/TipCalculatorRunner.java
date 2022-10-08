@@ -7,7 +7,7 @@ public class TipCalculatorRunner {
         // creating variables
         int people;
         double tip;
-        double cost;
+        double meal = 0.0;
 
         // initializing the values, from the user
         System.out.println("Welcome to the Tip Calculator!");
@@ -20,9 +20,14 @@ public class TipCalculatorRunner {
         TipCalculator bill1 = new TipCalculator(people, tip);
 
         // adding to the bill
-        System.out.print("Enter the cost of all meals: ");
-        cost = scan.nextDouble();
-        bill1.addMeal(cost);
+        while (meal != -1) {
+            System.out.print("Enter a cost in dollars and cents, e.g 12.50 (-1 to end): ");
+            meal = scan.nextDouble();
+            scan.nextLine();
+            if (meal != -1) {
+                bill1.addMeal(meal);
+            }
+        }
 
         // printing out information
         System.out.println("-----------------------------------");
